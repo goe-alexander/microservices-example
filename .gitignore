@@ -1,0 +1,4 @@
+# Project exclude paths
+/configsrv/target/
+/licensing-service/target/
+/target/
