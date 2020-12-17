@@ -5,10 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @AllArgsConstructor
@@ -22,6 +19,19 @@ public class License {
 
     @Column(name = "organization_id", nullable = false)
     private String organizationId;
+
+    @Transient
+    private String organizationName ="";
+
+    @Transient
+    private String contactName ="";
+
+    @Transient
+    private String contactPhone ="";
+
+    @Transient
+    private String contactEmail ="";
+
 
     @Column(name = "product_name", nullable = false)
     private String productName;
@@ -38,19 +48,22 @@ public class License {
     @Column(name="comment")
     private String comment;
 
-    public License withLicenseId(String id) {
+    public License withId(String id){
         this.setLicenseId(id);
         return this;
     }
-    public License withOrganizationId(String organizationId) {
+
+    public License withOrganizationId(String organizationId){
         this.setOrganizationId(organizationId);
         return this;
     }
-    public License withProductName(String productName) {
+
+    public License withProductName(String productName){
         this.setProductName(productName);
         return this;
     }
-    public License withLicenseType(String licenseType) {
+
+    public License withLicenseType(String licenseType){
         this.setLicenseType(licenseType);
         return this;
     }
@@ -67,6 +80,26 @@ public class License {
 
     public License withComment(String comment){
         this.setComment(comment);
+        return this;
+    }
+
+    public License withOrganizationName(String organizationName){
+        this.setOrganizationName(organizationName);
+        return this;
+    }
+
+    public License withContactName(String contactName){
+        this.setContactName(contactName);
+        return this;
+    }
+
+    public License withContactPhone(String contactPhone){
+        this.setContactPhone(contactPhone);
+        return this;
+    }
+
+    public License withContactEmail(String contactEmail){
+        this.setContactEmail(contactEmail);
         return this;
     }
 }

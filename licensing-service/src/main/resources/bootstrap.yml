@@ -5,6 +5,12 @@ spring:
     active: default
   cloud:
     config:
-      uri: http://localhost:8888
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auuto: update
+    show-sql:
+      - false
+
 encrypt:
   key: "IMSYMMETRICNOW"

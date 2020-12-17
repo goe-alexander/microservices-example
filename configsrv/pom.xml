@@ -35,6 +35,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
     </dependencies>
 
     <properties>
@@ -42,7 +47,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 <!--        <start-class>com.thoughtmechanix.confsvr.ConfigServerApplication</start-class>-->
         <docker.image.name>goita/license-confsrv</docker.image.name>
-        <docker.image.tag>chapter3</docker.image.tag>
+        <docker.image.tag>final</docker.image.tag>
     </properties>
 
     <build>

@@ -1,10 +1,16 @@
 version: '2'
 services:
+  eurekaserver:
+    image:   goita/eureka-service:final
+    ports:
+      - "8761:8761"
   configserver:
-    image: goita/license-confsrv:chapter3
+    image: goita/license-confsrv:final
     ports:
        - "8888:8888"
     environment:
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT: "8761"
       ENCRYPT_KEY: "IMSYMMETRICNOW"
   database:
     image: postgres:13-alpine
@@ -15,12 +21,41 @@ services:
       POSTGRES_PASSWORD: "123"
       POSTGRES_DB:       "eagle_eye_local"
   licensingservice:
-    image: goita/local-licensing-service:chapter3
+    image: goita/local-licensing-service:final
     ports:
       - "8080:8080"
     environment:
       PROFILE: "default"
+      SERVER_PORT: "8080"
       CONFIGSERVER_URI: "http://configserver:8888"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT: "8761"
       CONFIGSERVER_PORT:   "8888"
+      DATABASESERVER_PORT: "5432"
+      ENCRYPT_KEY: "IMSYMMETRICNOW"
+  organizationservice:
+    image: goita/local-organization-service:final
+    ports:
+      - "8085:8085"
+    environment:
+      PROFILE: "default"
+      SERVER_PORT: "8085"
+      CONFIGSERVER_URI: "http://configserver:8888"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT:   "8761"
+      CONFIGSERVER_PORT:   "8888"
+      DATABASESERVER_PORT: "5432"
+      ENCRYPT_KEY:       "IMSYMMETRICNOW"
+  organizationservice2:
+    image: goita/local-organization-service:final
+    ports:
+      - "8086:8086"
+    environment:
+      PROFILE: "default"
+      SERVER_PORT: "8085"
+      CONFIGSERVER_URI: "http://configserver:8888"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      EUREKASERVER_PORT: "8761"
+      CONFIGSERVER_PORT: "8888"
       DATABASESERVER_PORT: "5432"
       ENCRYPT_KEY: "IMSYMMETRICNOW"

@@ -20,6 +20,8 @@
     <modules>
         <module>configsrv</module>
         <module>licensing-service</module>
+        <module>organization-service</module>
+        <module>eurekasrv</module>
     </modules>
 
     <properties>
