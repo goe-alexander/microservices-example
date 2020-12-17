@@ -5,7 +5,7 @@
  sudo mvn clean package docker:build
 ```
 
-###Then use the docker composer file to run the containers:
+### Then use the docker composer file to run the containers:
 ```bash
 sudo docker-compose -f docker/common/docker-compose.yml up
 ```
