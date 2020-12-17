@@ -1,4 +1,8 @@
 # Project exclude paths
 /configsrv/target/
 /licensing-service/target/
+/eurekasrv/target
+/organization-service/target
 /target/
+.idea
+*.iml
