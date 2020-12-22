@@ -3,12 +3,16 @@ package license.controllers;
 import license.config.ServiceConfig;
 import license.model.License;
 import license.services.LicenseService;
+import license.utils.UserContextHolder;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping(value = "v1/organizations/{organizationId}/licenses")
 public class LicenseServiceController {
@@ -21,6 +25,7 @@ public class LicenseServiceController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<License> getLicenses(@PathVariable("organizationId") String organizationId) {
+        log.warn("LicenseServiceController Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
         return licenseService.getLicenseByOrg(organizationId);
     }
 
