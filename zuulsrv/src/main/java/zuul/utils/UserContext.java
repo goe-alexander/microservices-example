@@ -1,4 +1,4 @@
-package license.utils;
+package zuul.utils;
 
 import org.springframework.stereotype.Component;
 

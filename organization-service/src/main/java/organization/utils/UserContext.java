@@ -1,4 +1,4 @@
-package license.utils;
+package organization.utils;
 
 import org.springframework.stereotype.Component;
 

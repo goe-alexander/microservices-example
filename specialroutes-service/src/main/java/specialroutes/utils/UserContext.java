@@ -1,4 +1,4 @@
-package license.utils;
+package specialroutes.utils;
 
 import org.springframework.stereotype.Component;
 

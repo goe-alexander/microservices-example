@@ -1,4 +1,4 @@
-package license.utils;
+package organization.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,12 +25,11 @@ public class UserContextFilter implements Filter {
         HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
 
         UserContextHolder.getContext().setCorrelationId(  httpServletRequest.getHeader(UserContext.CORRELATION_ID) );
-        UserContextHolder.getContext().setUserId(httpServletRequest.getHeader(UserContext.USER_ID));
-        UserContextHolder.getContext().setAuthToken(httpServletRequest.getHeader(UserContext.AUTH_TOKEN));
-        UserContextHolder.getContext().setOrgId(httpServletRequest.getHeader(UserContext.ORG_ID));
+        UserContextHolder.getContext().setUserId( httpServletRequest.getHeader(UserContext.USER_ID) );
+        UserContextHolder.getContext().setAuthToken( httpServletRequest.getHeader(UserContext.AUTH_TOKEN) );
+        UserContextHolder.getContext().setOrgId( httpServletRequest.getHeader(UserContext.ORG_ID) );
 
-        logger.debug("License Service Incoming Correlation id: {}", UserContextHolder.getContext().getCorrelationId());
-
+        logger.debug("Organization Service Incoming Correlation id: {}" ,UserContextHolder.getContext().getCorrelationId());
         filterChain.doFilter(httpServletRequest, servletResponse);
     }
 

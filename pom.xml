@@ -22,6 +22,9 @@
         <module>licensing-service</module>
         <module>organization-service</module>
         <module>eurekasrv</module>
+        <module>zuulsrv</module>
+        <module>specialroutes-service</module>
+        <module>orgservice-new</module>
     </modules>
 
     <properties>
