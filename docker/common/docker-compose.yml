@@ -42,6 +42,7 @@ services:
       SERVER_PORT: "8080"
       CONFIGSERVER_URI: "http://configserver:8888"
       EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      AUTHSERVER_URI:   "http://authenticationservice:8901/auth/user"
       EUREKASERVER_PORT: "8761"
       CONFIGSERVER_PORT:   "8888"
       DATABASESERVER_PORT: "5432"
@@ -55,6 +56,7 @@ services:
       SERVER_PORT: "8085"
       CONFIGSERVER_URI: "http://configserver:8888"
       EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
+      AUTHSERVER_URI:   "http://authenticationservice:8901/auth/user"
       EUREKASERVER_PORT:   "8761"
       CONFIGSERVER_PORT:   "8888"
       DATABASESERVER_PORT: "5432"
@@ -84,4 +86,17 @@ services:
       EUREKASERVER_PORT:        "8761"
       DATABASESERVER_PORT:      "5432"
       CONFIGSERVER_PORT:        "8888"
+      ENCRYPT_KEY:       "IMSYMMETRICNOW"
+  authenticationservice:
+    image: goita/local-authentication-service:final
+    ports:
+      - "8901:8901"
+    environment:
+      PROFILE: "default"
+      SERVER_PORT: "8901"
+      DATABASE_PORT:     "5432"
+      CONFIGSERVER_PORT: "8888"
+      EUREKASERVER_PORT: "8761"
+      CONFIGSERVER_URI: "http://configserver:8888"
+      EUREKASERVER_URI: "http://eurekaserver:8761/eureka/"
       ENCRYPT_KEY:       "IMSYMMETRICNOW"

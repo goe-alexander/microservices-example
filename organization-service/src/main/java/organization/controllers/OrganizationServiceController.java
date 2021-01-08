@@ -31,9 +31,14 @@ public class OrganizationServiceController {
         orgService.saveOrg( org );
     }
 
+//    @RequestMapping(value="/{orgId}",method = RequestMethod.DELETE)
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+//    public void deleteOrganization( @PathVariable("orgId") String orgId,  @RequestBody Organization org) {
+//        orgService.deleteOrg( org );
+//    }
     @RequestMapping(value="/{organizationId}",method = RequestMethod.DELETE)
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteOrganization( @PathVariable("orgId") String orgId,  @RequestBody Organization org) {
-        orgService.deleteOrg( org );
+    public void deleteOrganizationByID( @PathVariable("organizationId") String organizationId) {
+        orgService.deletOrgById( organizationId );
     }
 }

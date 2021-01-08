@@ -34,10 +34,10 @@ public class TrackingFilter extends ZuulFilter{
     @Override
     public Object run() throws ZuulException {
         if(isCorrelationIdPresent()) {
-            log.info("tmx-correlation-id found in tracking filter: {}", filterUtils.getCorrelationId());
+            log.info("correlation-id found in tracking filter: {}", filterUtils.getCorrelationId());
         } else {
             filterUtils.setCorrelationId(generateCorrelationId());
-            log.info("tmx-correlation-id generated in tracking filter: {}", filterUtils.getCorrelationId());
+            log.info("correlation-id generated in tracking filter: {}", filterUtils.getCorrelationId());
         }
 
         RequestContext zuulContext = RequestContext.getCurrentContext();

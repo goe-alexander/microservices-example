@@ -25,6 +25,7 @@ eureka:
 
 zuul:
   prefix:  /api
+  sensitiveHeaders: Cookie, Set-Cookie
 #  ignored-services: '*' # This can be used to ignore automatically mapped services
   routes:
 #    externalauthservice:

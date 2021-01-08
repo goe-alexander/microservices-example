@@ -1,4 +1,14 @@
+
+#In case you just use plain oauth2 security without JWT
+
+#security:
+#  oauth2:
+#    resource:
+#      userInfoUri: http://localhost:8901/auth/user
+
 spring:
+  main:
+    allow-bean-definition-overriding: true
   datasource:
     initialization-mode: always
   jpa:

@@ -37,7 +37,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.*;
 
-@Component
+//@Component
 @Slf4j
 public class SpecialRoutesFilter extends ZuulFilter {
 
