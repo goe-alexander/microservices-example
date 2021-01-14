@@ -7,7 +7,16 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
-
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: orgChangeTopic
+          content-type: application/json
+      kafka:
+        binder:
+          zkNodes: localhost
+          brokers: localhost
 #In case you just use plain oauth2 security without JWT
 #security:
 #  oauth2:

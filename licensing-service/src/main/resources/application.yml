@@ -1,4 +1,3 @@
-
 #In case you just use plain oauth2 security without JWT
 
 #security:
@@ -15,6 +14,17 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: none
+  cloud:
+    stream:
+      bindings:
+        inboundOrgChanges:
+          destination: orgChangeTopic
+          content-type: application/json
+          group: licensingGroup
+      kafka:
+        binder:
+          zkNodes: localhost
+          brokers: localhost
 
 management:
   endpoints:
